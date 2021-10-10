@@ -13,7 +13,8 @@
 
 
     <div id="app">
-        <h1>{{ title }}</h1>
+
+        <h1>{{title}}</h1>
         <p>{{ description }} </p>
         <br><br>
         <a  :href="eduflow.url"
@@ -28,9 +29,12 @@
         <button type="button" @click="changeTitle('Bu 2.buton')" >Degistir 2 </button>
         <br><br>
 
-        <div class="box" @click="changeTitle('box üzerinden gelen')">
-
+        <div class="box"
+             @click="changeTitle('box üzerinden gelen')"
+             @mousemove="updateCoords($event,'mymove')"
+        >
         </div>
+        <span>{{ mycoords.x }}  {{ mycoords.y }}</span>
 
     </div>
 
