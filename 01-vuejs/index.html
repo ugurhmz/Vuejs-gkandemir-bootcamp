@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="mystyle.css">
+
+</head>
+<body>
+
+
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <p>{{ description }} </p>
+        <br><br>
+        <a  :href="eduflow.url"
+            :target="eduflow.target"
+            :alt="eduflow.alt"
+        >
+            {{ eduflow.title }}
+        </a>
+        <br><br>
+
+        <button type="button" @click="changeTitle('Bu 1.buton')" >Degistir 1 </button> &nbsp;
+        <button type="button" @click="changeTitle('Bu 2.buton')" >Degistir 2 </button>
+        <br><br>
+
+        <div class="box" @click="changeTitle('box üzerinden gelen')">
+
+        </div>
+
+    </div>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
