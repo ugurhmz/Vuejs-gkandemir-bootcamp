@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app" class="container-fluid d-flex justify-content-center mt-4 align-items-center">
+    {{  showBorder }}
+
+    <button @click="showBorder = !showBorder" class="btn btn-primary btn-sm mr-2" >Border Ekle/Ekleme</button>
+    <button class="btn btn-danger" @click="redBg = !redBg">Red bg ekle/ekleme</button>
+    <!-- <div class="box" :class="{ myborder : showBorder , red : redBg }">
+
+            showBorder her tıklayışta, true ise -> false.
+                                       false ise ->true yap.
+
+            *  showBorder isimli değişkenim true ise -> myborder class'ını ekle.
+
+
+    </div> -->
+
+    <!-- computed ile yapma -->
+    <div class="box" :class="boxClasses">
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
