@@ -13,7 +13,7 @@
     {{  showBorder }}
 
     <button @click="showBorder = !showBorder" class="btn btn-primary btn-sm mr-2" >Border Ekle/Ekleme</button>
-    <button class="btn btn-danger" @click="redBg = !redBg">Red bg ekle/ekleme</button>
+    <button @click="redBg = !redBg" class="btn btn-danger" >Red bg ekle/ekleme</button>
     <!-- <div class="box" :class="{ myborder : showBorder , red : redBg }">
 
             showBorder her tıklayışta, true ise -> false.
@@ -23,9 +23,11 @@
 
 
     </div> -->
-
     <!-- computed ile yapma -->
-    <div class="box" :class="boxClasses">
+    <input type="text" v-model="bgColor" />
+    {{ bgColor  }}
+
+    <div class="box" :class="boxClasses" :style="{ backgroundColor : bgColor}">
 
     </div>
 

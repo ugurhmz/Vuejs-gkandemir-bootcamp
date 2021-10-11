@@ -20,15 +20,15 @@
 
 
 .red {
-    background-color:red;
+    background-color:red !important;
 }
 
 
 .blue {
-    background-color:blue;
+    background-color:blue !important;
 }
 
 
 .green {
-    background-color:green;
+    background-color:green !important;
 }

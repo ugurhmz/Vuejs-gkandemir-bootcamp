@@ -6,6 +6,7 @@ const app = Vue.createApp({
             showBorder:false,
             redBg : false,
             boxClass:"myborder red",
+            bgColor:"cyan"
         }
     },
 
