@@ -12,7 +12,7 @@
 <body>
 
 
-    <div id="app">
+    <div id="app" class="container-fluid">
        <div class="row d-flex mt-2  ">
 
            <div class="col-5 justify-content-center container text-center"
@@ -37,6 +37,13 @@
 
        </div>
 
+        <div class="row mt-4 d-flex justify-content-center" >
+            <div class="col-4 py-4 text-center" style="border:2px solid #ad6666;" >
+                <pre>{{ myitemList }}</pre>
+
+                <button class="btn btn-dark" @click="addItem">Add</button>
+            </div>
+        </div>
 
     </div>
 

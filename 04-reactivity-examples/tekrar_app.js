@@ -4,10 +4,15 @@ const app = Vue.createApp({
         return {
             counter : 0,
             counter_two : 0,
-
+            myitemList : []
         }
     },
 
+    methods : {
+        addItem () {
+            this.myitemList.push(new Date().getTime());
+        }
+    },
     computed : {
         getResult(){
 
@@ -23,6 +28,27 @@ const app = Vue.createApp({
             return this.counter_two  > 0 ? "pozitif" : this.counter_two  < 0 ? "negatif" : "Sıfırdır";
         }
     },
+
+    watch : {
+        counter_two (newVal, oldVal) {
+            console.log("counter_two watching.....")
+            console.log("yeni değer : ", newVal,"\n","eski değer : "+oldVal);
+        },
+
+
+        getResult(newvalue, oldvalue) {
+            console.log(`watcher getResult : ${newvalue} => ${oldvalue}`);
+        },
+
+        // ARRAY'i izlemek için şu şekilde yapıyoruz :
+        myitemList : {
+            deep :true,
+            handler(myitemList){
+                console.log("itemList çalıştı : ",myitemList);
+            }
+        }
+
+    }
 
 
 }).mount("#app");
