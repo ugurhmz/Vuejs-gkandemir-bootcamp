@@ -26,7 +26,26 @@ const app = Vue.createApp({
                 "text-blue" : this.counter == 3,
                 "text-red" : this.counter === 4,
             }
+        },
+
+        pTextChange(){
+            return {
+                "text-green" : this.counter == 4,
+                "text-orange" : this.counter == 3,
+                "text-default" : this.counter == 1,
+                "text-blue" : this.counter == 2,
+                "text-red" : this.counter === 0,
+            }
+        },
+        showBox(){
+            return {
+                "specialBox" : this.counter ==3,
+                "specialBox" : this.counter ==4,
+                "specialBox" : this.counter ==1,
+            }
         }
+
+
     },
 
     watch : {

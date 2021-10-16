@@ -510,6 +510,13 @@ body #app button {
     color: #32373b;
 }
 
+.specialBox{
+    width:200px;
+    height:200px;
+    background-color: orangered;
+    border:1px solid black;
+}
+
 body #app button:hover {
     background-color: #f3f4f4;
 }

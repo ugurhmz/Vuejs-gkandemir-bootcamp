@@ -13,7 +13,27 @@
 
     <div id="app">
         <div class="container">
-            <h3 :class="textClassChange">Css ve Style Binding</h3>
+
+          
+                <h3 :class="textClassChange">Css ve Style Binding</h3>
+                <p :class="pTextChange" class="mb-4 p-4 ">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas rerum nisi reprehenderit laboriosam repellat quos soluta delectus voluptate, totam illum sunt. Magni quia culpa corporis modi reiciendis quasi eius dolor.
+                </p>
+                <p :style="{ color : 'purple'}">
+                        Lorem ipsum dolor sit amet.
+                </p>
+       
+
+        </div>
+
+        <div class="container">
+            
+           <dv class="row mt-3">
+            <div class="col-4" :class="showBox">1</div>
+            <div class="col-4" :class="showBox">2</div>
+            <div class="col-4" :class="showBox">3</div>
+        </div>
+
         </div>
     </div>
 
