@@ -459,6 +459,7 @@ body #app {
     align-items: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 body #app .container {
