@@ -17,6 +17,7 @@
 
 <script>
 
+
 import CounterItem from "@/components/CounterItem";
 
   export default {
