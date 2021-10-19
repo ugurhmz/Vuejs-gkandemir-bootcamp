@@ -5,7 +5,7 @@
   <li class="d-flex mt-4 align-items-center justify-content-between " >
 
     <span><span class="todoId"> {{item.id}} </span>  &nbsp; {{ item.text }}</span>
-    <button class="red">Sil</button>
+    <button  @click="$emit('delete-todo-item', item)"  class="red">Sil</button>
   </li>
 
 </template>

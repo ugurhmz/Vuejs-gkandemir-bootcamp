@@ -3,7 +3,7 @@
 
   <input
       v-model="todoText"
-      @keypress.enter = "addNewTodo"
+      @keypress.enter = "addNewTodo(todoText)"
       type="text"
       id="todoInput"
       placeholder="Todo giriniz...">
@@ -15,6 +15,13 @@
 
   export default {
 
+    props: {
+      addNewTodo : {
+         type: Function,
+         required: true
+      }
+    },
+
     data() {
       return {
         todoText : null
@@ -23,10 +30,12 @@
 
 
     methods: {
-      addNewTodo(){
-        this.$emit("add-todo-event",this.todoText);
-        this.todoText = null;
-      }
+
+
+      // addNewTodo(){
+      //   this.$emit("add-todo-event",this.todoText);
+      //   this.todoText = null;
+      // }
     }
   }
 

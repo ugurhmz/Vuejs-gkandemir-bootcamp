@@ -3,15 +3,14 @@
 <template>
 
   <div class="container" style="width: 800px !important;">
-        <h3 class="text-green text-center bg-black py-4">Todo App</h3>
-    <hr class="my-2">
 
-      <AddInputSection  @add-todo-event="todoAdd" />
+      <h3 class="text-green text-center bg-black py-4">Todo App</h3>
+       <hr class="my-2">
 
-      <ListTodo   :myData = "todoList" />
+      <AddInputSection  :addNewTodo="todoAdd" />
+      <ListTodo  @delete-my-item="deleteItem" :myData = "todoList" />
 
-    <small v-if="todoList.length !== 0" class="text-right d-flex justify-content-center mt-2 text-green">{{ todoList.length }} adet todo vardır</small>
-rs
+      <ResultBar  :itemCount="todoList.length"/>
   </div>
 
 </template>
@@ -21,12 +20,13 @@ rs
 
 import AddInputSection  from "@/components/AddInputSection";
 import ListTodo from "@/components/ListTodo";
-
+import ResultBar from "@/components/ResultBar"
 
   export default{
       components : {
         ListTodo,
-        AddInputSection
+        AddInputSection,
+        ResultBar
       },
 
       data() {
@@ -44,21 +44,29 @@ import ListTodo from "@/components/ListTodo";
       methods : {
 
         deleteItem(incomingItem) {
-
+        console.log(incomingItem)
           this.todoList = this.todoList.filter( (item) => item !== incomingItem);
         },
 
 
         todoAdd(todo) {
 
-             if( todo  !== ""){
 
-                 this.todoList.push({
-                   id : this.todoList.length === 0 ? 1 : this.todoList.slice(-1)[0].id + 1 ,
-                   text : todo.trim(),
-                 });
+            if(todo !== null && todo.trim().length !== 0 ){
+              let newTodo = todo.trim();
 
-             }
+              if(newTodo !== "" || newTodo !== null || newTodo.length !== 0){
+
+                this.todoList.push({
+                  id : this.todoList.length === 0 ? 1 : this.todoList.slice(-1)[0].id + 1 ,
+                  text : newTodo
+                });
+
+              }
+            } else {
+              alert("Boş Todo yazıyorsunuz!!");
+            }
+
 
         }
       }
