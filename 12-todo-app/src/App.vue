@@ -8,9 +8,9 @@
        <hr class="my-2">
 
       <AddInputSection  :addNewTodo="todoAdd" />
-      <ListTodo  @delete-my-item="deleteItem" :myData = "todoList" />
+      <ListTodo  />
 
-      <ResultBar  :itemCount="todoList.length"/>
+      <ResultBar  :itemCount="provideData.todoList.length"/>
   </div>
 
 </template>
@@ -31,21 +31,34 @@ import ResultBar from "@/components/ResultBar"
 
       data() {
         return {
-          todoList : [
-            {id : 1, text:"Work Spring Boot Security"},
-            {id : 2, text:"Go to Gym"},
-            {id : 3, text:"Muay Thai"},
 
-          ],
-          todoVal : ""
+          provideData : {
+              todoList : [
+                  {id : 1, text:"Work Spring Boot Security"},
+                  {id : 2, text:"Go to Gym"},
+                  {id : 3, text:"Muay Thai"},
+
+              ],
+
+          },
+
+
         }
       },
+
+      provide () {
+        return {
+            provideData : this.provideData,
+            deleteItem : this.deleteItem,
+        }
+      },
+
 
       methods : {
 
         deleteItem(incomingItem) {
-        console.log(incomingItem)
-          this.todoList = this.todoList.filter( (item) => item !== incomingItem);
+        console.log(incomingItem);
+          this.provideData.todoList = this.provideData.todoList.filter( (item) => item !== incomingItem);
         },
 
 
@@ -57,10 +70,11 @@ import ResultBar from "@/components/ResultBar"
 
               if(newTodo !== "" || newTodo !== null || newTodo.length !== 0){
 
-                this.todoList.push({
-                  id : this.todoList.length === 0 ? 1 : this.todoList.slice(-1)[0].id + 1 ,
+                this.provideData.todoList.push({
+                  id : this.provideData.todoList.length === 0 ? 1 : this.provideData.todoList.slice(-1)[0].id + 1 ,
                   text : newTodo
                 });
+
 
               }
             } else {

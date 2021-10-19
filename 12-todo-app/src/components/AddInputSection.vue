@@ -11,9 +11,11 @@
 </template>
 
 
+
 <script>
 
   export default {
+
 
     props: {
       addNewTodo : {
@@ -22,21 +24,14 @@
       }
     },
 
+
+
     data() {
       return {
         todoText : null
       }
     },
 
-
-    methods: {
-
-
-      // addNewTodo(){
-      //   this.$emit("add-todo-event",this.todoText);
-      //   this.todoText = null;
-      // }
-    }
   }
 
 </script>
