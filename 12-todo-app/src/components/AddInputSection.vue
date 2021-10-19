@@ -2,9 +2,32 @@
   <label for="todoInput"></label>
 
   <input
-      @keypress.enter = "todoAdd"
+      v-model="todoText"
+      @keypress.enter = "addNewTodo"
       type="text"
       id="todoInput"
-      :value="todoVal"
       placeholder="Todo giriniz...">
+
 </template>
+
+
+<script>
+
+  export default {
+
+    data() {
+      return {
+        todoText : null
+      }
+    },
+
+
+    methods: {
+      addNewTodo(){
+        this.$emit("add-todo-event",this.todoText);
+        this.todoText = null;
+      }
+    }
+  }
+
+</script>

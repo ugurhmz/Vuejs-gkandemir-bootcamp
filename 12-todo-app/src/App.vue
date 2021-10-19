@@ -1,16 +1,17 @@
 
+
 <template>
 
   <div class="container" style="width: 800px !important;">
-
         <h3 class="text-green text-center bg-black py-4">Todo App</h3>
     <hr class="my-2">
 
-      <AddInputSection />
-      <ListTodo :myData = "todoList" />
+      <AddInputSection  @add-todo-event="todoAdd" />
+
+      <ListTodo   :myData = "todoList" />
 
     <small v-if="todoList.length !== 0" class="text-right d-flex justify-content-center mt-2 text-green">{{ todoList.length }} adet todo vardır</small>
-
+rs
   </div>
 
 </template>
@@ -41,16 +42,20 @@ import ListTodo from "@/components/ListTodo";
       },
 
       methods : {
+
         deleteItem(incomingItem) {
-          console.log(incomingItem)
-          this.todoList = this.todoList.filter( (item) => item != incomingItem);
+
+          this.todoList = this.todoList.filter( (item) => item !== incomingItem);
         },
 
-        todoAdd(e) {
-             if( e.target.value !== ""){
+
+        todoAdd(todo) {
+
+             if( todo  !== ""){
+
                  this.todoList.push({
                    id : this.todoList.length === 0 ? 1 : this.todoList.slice(-1)[0].id + 1 ,
-                   text : e.target.value.trim(),
+                   text : todo.trim(),
                  });
 
              }
