@@ -90,5 +90,31 @@ ________________________________________________________________________________
 ***14)   v-if ->  ile yaptığımızda koşullardan hangisi sağlıyor sadece o gözükür html sayfasında. Elementi DOM üzerinden tamamen kaldırıyor.
 	v-show -> tüm koşullar html sayfasında gözükür. Şartı sağlamayanlar display:none şeklinde olur. Css ile elementi kaldırıyor.
 
+________________________________________________________________________________________________________________________________________________
+							COMPONENT
 
+1- import edildiğim yere, Parentıma bilgi atıyorum diyorum --> this.$emit("yollanan_event_ismi", "eventin_içerdiği_data")
+şeklinde event yolluyoruz, parentta ise   @yollanan_event_ismi şeklinde=""  şeklinde yakalıyoruz.
+
+   Parentten -> Childe =>   props: ["yolanan_props"] şeklinde.
+   Childden -> Parenta =>   $emit
+
+
+2- @delete-item-event="$emit('delete-item', $event)    //Bu şu demektir:
+
+    1- aşağıdan gelen @delete-item-event i al. 
+    2- Onu $emit ile parenta yolla.
+    3- delete-item eventi isminde yolla.
+    4- yollanacak veri ise -> aşağıdan gelen olduğunu gösermek için $event şeklinde yapıyopruz
+
+
+3- @ -> Event olduğunu gösterir.
+
+
+4- provide yaklaşımı şu ->  Siz ana Parent  üzerinden datayı provide edersiniz. İstediğiniz, ihtiyacınız nerde ise 
+                            Onu inject edersiniz.
+                          
+
+
+   inject ilede -> Parenttan gelen, provide edileni ~~> nerde kullanacaksam orada yapıyorum. 
 
