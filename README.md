@@ -200,7 +200,7 @@ ________________________________________________________________________________
 2- Componentin bilgisini tutmak istiyorsak, 
 
 
-<!-- <keep-alive> </keep-alive> sarmalaması yapılır.-->
+keep-alive /keep-alive sarmalaması yapılır
 	
 
 
