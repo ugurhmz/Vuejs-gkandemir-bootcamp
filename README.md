@@ -151,6 +151,9 @@ ________________________________________________________________________________
 
 
 
+
+
+
 5- pushlama işlemi için data() { return {  } } -> kullanılmalı
 
 
@@ -183,7 +186,7 @@ not -> #title ile v-slot:title aynı şey.
 
 _________________________________________________________________________________________________________________________________
                                             DYNAMIC COMPONENT
-1)
+1-
   <component :is="activeComponent" msg="Red Component 2">
             <h3 class="bg-green text-white">Green Component</h3>
   </component>
@@ -194,7 +197,7 @@ ________________________________________________________________________________
 
 
 
-2) Componentin bilgisini tutmak istiyorsak, 
+2- Componentin bilgisini tutmak istiyorsak, 
 
 <keep-alive> </keep-alive> sarmalaması yapılır.
 
@@ -205,13 +208,13 @@ bunun çözümü ise -> biz keep-alive kullandığımızda bize 2 tane life-cycl
 
 
 
-3) json-server kurduktan sonra bunu db gibi kullanmak için terminalde:
+3- json-server kurduktan sonra bunu db gibi kullanmak için terminalde:
 
 json-server --watch mydb.json
 
 
 
-4) axios kullanımı : 
+4- axios kullanımı : 
 
 const saveObject = {
                 title : e.target.value,
@@ -227,24 +230,26 @@ burdaki localhost -> json-server ile çalıştırdığımız fake db.
 
 
 
-5) axios promise  yöntemi ile çalışır. Yani bu istek gerçekleştikten sonra yapılacak callback verir
+5- axios promise  yöntemi ile çalışır. Yani bu istek gerçekleştikten sonra yapılacak callback verir
 onada then() ile ulaşırız.
 
 *Yani axios işleminden sonra .then ile response karşılanır.
 
-6) axios ile yapılan o post isteğinde, eklenen her şeyi mydb.jsona ekleyecek. yani bir dbye ekliyor gibi
+6- axios ile yapılan o post isteğinde, eklenen her şeyi mydb.jsona ekleyecek. yani bir dbye ekliyor gibi
 
 
 
-7) mounted() -> mantık şu: vue uygulumamız render edildikten sonra, doma yapıştırıldıktan sonra, siz başka elemente
+7- mounted() -> mantık şu: vue uygulumamız render edildikten sonra, doma yapıştırıldıktan sonra, siz başka elemente
 native olarak erişmek istiyorsanız, kaydınızda buna göre çekilecekse işte o zaman mounted daha doğru. yoksa 
 created ilede yapılabilir.
 
 
-8) this.itemsList = this.itemsList.filter( i => i.id !== item.id)  bu şu demek :
+8- this.itemsList = this.itemsList.filter( i => i.id !== item.id)  bu şu demek :
 
 
 Sildiğim eleman hariç hepsini al o listeden, benim yeni listemi oluştur diyorum burda.
+
+
 
 
 
