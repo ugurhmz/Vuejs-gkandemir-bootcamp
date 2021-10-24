@@ -118,3 +118,133 @@ ________________________________________________________________________________
 
    inject ilede -> Parenttan gelen, provide edileni ~~> nerde kullanacaksam orada yapıyorum. 
 
+
+
+
+
+1- import edildiğim yere, Parentıma bilgi atıyorum diyorum --> this.$emit("yollanan_event_ismi", "eventin_içerdiği_data")
+şeklinde event yolluyoruz, parentta ise   @yollanan_event_ismi şeklinde=""  şeklinde yakalıyoruz.
+
+   Parentten -> Childe =>   props: ["yolanan_props"] şeklinde.
+   Childden -> Parenta =>   $emit
+
+
+2- @delete-item-event="$emit('delete-item', $event)    //Bu şu demektir:
+
+    1- aşağıdan gelen @delete-item-event i al. 
+    2- Onu $emit ile parenta yolla.
+    3- delete-item eventi isminde yolla.
+    4- yollanacak veri ise -> aşağıdan gelen olduğunu gösermek için $event şeklinde yapıyopruz
+
+
+3- @ -> Event olduğunu gösterir.
+
+
+4- provide yaklaşımı şu ->  Siz ana Parent  üzerinden datayı provide edersiniz. İstediğiniz, ihtiyacınız nerde ise 
+                            Onu inject edersiniz.
+                          
+
+
+   inject ilede -> Parenttan gelen, provide edileni ~~> nerde kullanacaksam orada yapıyorum. 
+
+
+
+
+
+5- pushlama işlemi için data() { return {  } } -> kullanılmalı
+
+
+6- provide  işlemi data içinde yollanır.
+
+
+_________________________________________________________________________________________________________________________________
+                                            SLOT İLE GÖNDERME 
+
+Yukardan aşağı prop gibi html içerikleri yollama.
+
+1-  
+    App.vue bu şekilde
+
+ <Modal>
+        <template #title>  
+            <h3>Slot ile gelen  Title lorem ipsum</h3>
+        </template>
+  </Modal>
+
+    
+    alt tarafta yollamak için  kullanımı ise :
+
+    <slot name="title" />
+
+
+not -> #title ile v-slot:title aynı şey.
+
+
+
+_________________________________________________________________________________________________________________________________
+                                            DYNAMIC COMPONENT
+1)
+  <component :is="activeComponent" msg="Red Component 2">
+            <h3 class="bg-green text-white">Green Component</h3>
+  </component>
+
+
+
+    activeComponent -> data()'da tanımlanan, msg ise props şeklinde, h3 ise slot şeklinde gider.
+
+
+
+2) Componentin bilgisini tutmak istiyorsak, 
+
+<keep-alive> </keep-alive> sarmalaması yapılır.
+
+
+keep-alive ile birlikte mounted olmaz. Yani life-cycle hooku kaybettim.
+bunun çözümü ise -> biz keep-alive kullandığımızda bize 2 tane life-cycle hook veriyor onlarda :
+
+
+
+
+3) json-server kurduktan sonra bunu db gibi kullanmak için terminalde:
+
+json-server --watch mydb.json
+
+
+
+4) axios kullanımı : 
+
+const saveObject = {
+                title : e.target.value,
+                created_at : new Date(),
+                completed : false
+            }     
+
+axios.post("http://localhost:3000/items", saveObject)
+
+
+burdaki localhost -> json-server ile çalıştırdığımız fake db.
+
+
+
+
+5) axios promise  yöntemi ile çalışır. Yani bu istek gerçekleştikten sonra yapılacak callback verir
+onada then() ile ulaşırız.
+
+*Yani axios işleminden sonra .then ile response karşılanır.
+
+6) axios ile yapılan o post isteğinde, eklenen her şeyi mydb.jsona ekleyecek. yani bir dbye ekliyor gibi
+
+
+
+7) mounted() -> mantık şu: vue uygulumamız render edildikten sonra, doma yapıştırıldıktan sonra, siz başka elemente
+native olarak erişmek istiyorsanız, kaydınızda buna göre çekilecekse işte o zaman mounted daha doğru. yoksa 
+created ilede yapılabilir.
+
+
+8) this.itemsList = this.itemsList.filter( i => i.id !== item.id)  bu şu demek :
+
+
+Sildiğim eleman hariç hepsini al o listeden, benim yeni listemi oluştur diyorum burda.
+
+
+
