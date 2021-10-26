@@ -19,15 +19,35 @@ const store = createStore({
         permissions : [1,2,3,4,5,6],
         fullName : "Ugur hmz",
         itemList : [
-            {id:1, name:"Phone", cate:"elektronikx"},
+            {id:1, name:"Phone", cate:"elektronik"},
             {id:2, name:"TV", cate:"elektronik"},
             {id:3, name:"MOUSE", cate:"ayakkabı"},
             {id:4, name:"LCD", cate:"mobilya"},
             {id:5, name:"RADIO", cate:"küpeler"},
-            {id:6, name:"Speaker", cate:"elektronik"}
+            {id:6, name:"Speaker", cate:"elektronikx"}
 
         ]
 
+    },
+
+
+    mutations : {
+        newItem(state, item){
+            console.log("state infos : ",state);
+            state.itemList.push(item);
+        }
+    },
+
+    actions : {
+
+     addNewItem( { commit }, item){
+               
+           
+            setTimeout(() => {
+                //    context.commit("newItem",item); // contextin içinde mutations var ben oraya göndericem diyoruz bu şekilde.
+                commit("newItem",item);
+            }, 2000);
+        }
     },
 
     getters : {

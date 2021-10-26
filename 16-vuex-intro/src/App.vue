@@ -1,38 +1,29 @@
 <template>
     <div class="container">
         
-        <ul>
-            <li v-for="(item, index) in $store.getters.myElectronicItems" :key="index">
-            {{ index+1 }}     {{ item }}
-            </li>
-        </ul>
-        <br><hr>
-        <button @click="fullNameChangeFunc">name Degis</button>
-      
 
-        <pre>
-            {{ $store.getters.myElectronicItems }}
-        </pre>
+        <UserList />
+        <NewUser />
+        
+     
     </div>
 </template>
 
 
 
 <script>
+
+import NewUser from "@/components/NewUser"
+import UserList from "@/components/UserList"
+
+
+
 export default {
     
-    created () {
-       console.log(this.$store.state.person);
-       console.log(this.$store.state.permissions);
-       console.log( this.$store.getters.activeUser);
-       
+    components : {
+        NewUser,
+        UserList
     },
-    methods : {
-        fullNameChangeFunc() {
-            this.$store.state.fullName = new Date();
-            this.$store.state.itemList.push({id:15, name:"Yekma", cate:"elektronik"},)
-        }
-    }
-
+   
 }
 </script>
