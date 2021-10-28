@@ -33,7 +33,6 @@ export default {
             myActiveusers :  "activeUser"
         })
     }
-    
 
 }
 </script>
