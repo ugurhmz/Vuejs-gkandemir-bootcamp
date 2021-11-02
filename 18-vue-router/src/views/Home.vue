@@ -15,7 +15,7 @@ export default {
     
     methods : {
         goToDetailsPage(e){
-            console.log(e.target.value);
+            console.log(this.$router);
 
             this.$router.push({
                 name:"DetayPage",
