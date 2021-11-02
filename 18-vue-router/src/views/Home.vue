@@ -1,7 +1,35 @@
 <template>
 
-    <div class="container">
+   
         <h1>Home page</h1>
-    </div>
+
+        <p>
+            <input type="text" @keydown.enter="goToDetailsPage">
+        </p>
+ 
     
 </template>
+
+<script>
+export default {
+    
+    methods : {
+        goToDetailsPage(e){
+            console.log(e.target.value);
+
+            this.$router.push({
+                name:"DetayPage",
+                params : {
+                    userId : e.target.value
+                },
+                query : {
+                    type : "DetailhAuth",
+                    user : "Ugurhmz"
+                }
+
+            })
+        }
+    }
+
+}
+</script>
