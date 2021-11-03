@@ -10,26 +10,55 @@
         <form>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title">
+                <input type="text" v-model="userDatas.title" class="form-control" id="title">
             </div>
             <div class="form-group">
                 <label for="formGroupExampleInput2">URL</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2">
+                <input type="text" v-model ="userDatas.url" class="form-control" id="formGroupExampleInput2">
             </div>
 
            <div class="form-group">
                <label for="description">Description</label>
-               <textarea class="form-control"  id="description" cols="30" rows="10"></textarea>
+               <textarea class="form-control" v-model="userDatas.description"  id="description" cols="30" rows="10"></textarea>
            </div>
         </form>
 
         <div class="d-flex justify-content-center align-items-center">
                 <button  @click="$router.push({ name : 'HomePage'})"
                 class="btn btn-secondary mr-2">Cancel</button>
-                <button class="btn btn-success">Save</button>
+                <button class="btn btn-success" @click="onSave">Save</button>
         </div>
 
     </div>
 
 
 </template>
+
+<script>
+
+export default {
+    data () {
+        return {
+            userDatas : {
+                title : null,
+                url : null,
+                description : null
+            }
+        }
+    },
+
+    methods : {
+        onSave() {
+            console.log(this.userDatas);
+
+            this.$axios.post("http://localhost:3000/bookmarks", this.userDatas)
+                .then(save_response => {
+                    console.log("response : ", save_response);
+                 })
+        }
+    }
+}
+
+</script>
+
+
