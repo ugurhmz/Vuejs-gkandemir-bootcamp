@@ -51,10 +51,16 @@ export default {
         onSave() {
             console.log(this.userDatas);
 
-            this.$axios.post("http://localhost:3000/bookmarks", this.userDatas)
+            this.$appAxios.post("/bookmarks", this.userDatas)
                 .then(save_response => {
                     console.log("response : ", save_response);
-                 })
+                    this.resetData();
+                    this.$router.push("/")
+                })
+        },
+
+        resetData() {
+            Object.keys(this.userDatas).forEach( key => ( this.userDatas[key] = null) );    // $axios.post'tan sonra  Bu fieldlerin valuesini temizler.
         }
     }
 }
