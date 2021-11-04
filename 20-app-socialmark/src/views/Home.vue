@@ -1,10 +1,24 @@
 <template>
-    <h1>Home Page....</h1>
+
+    <app-header/>
+
+    <div class="flex flex-row">
+        <left-side-bar/>
+        <app-bookmark-list/>
+
+    </div>
+
 </template>
 
 <script>
+
+    import LeftSideBar from "@/components/Home/LeftSideBar.vue";
+
     export default {
-        name: "Home"
+        name: "Home",
+        components: {
+            LeftSideBar,
+        }
     }
 </script>
 
