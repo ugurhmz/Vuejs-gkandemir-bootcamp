@@ -7,7 +7,10 @@
         <button class="default-button">Giriş yap</button>
         <span class="text-center mt-3 text-sm">
         Üye değilim,
-        <a href="#" class="text-red-900 hover:text-black">Üye olmak istiyorum!</a>
+          <router-link :to="{ name : 'RegisterPage'}" class="text-red-900 hover:text-black">
+                Üye olmak istiyorum!
+          </router-link>
+
       </span>
     </div>
 

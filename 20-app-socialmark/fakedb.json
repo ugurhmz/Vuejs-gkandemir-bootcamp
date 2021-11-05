@@ -1,7 +1,24 @@
 {
-
-  "users" : [],
-  "bookmarks" : [],
-  "categories" : []
-
+  "users": [
+    {
+      "username": "selen67",
+      "fullname": "admin",
+      "password": "U2FsdGVkX1/oL2k6NiUlkU5jKFbS0jOvhd0gtqfZJIo=",
+      "id": 1
+    },
+    {
+      "username": "mert usta",
+      "fullname": "mert67",
+      "password": "U2FsdGVkX19huco8nPOutmEZhmRJqNGeqAzQISZ9Gbc=",
+      "id": 2
+    },
+    {
+      "username": "selin uçak",
+      "fullname": "selin6767",
+      "password": "U2FsdGVkX1+U3A/26c/Pwtek1mPWhj6iUDp+fKWhpzc=",
+      "id": 3
+    }
+  ],
+  "bookmarks": [],
+  "categories": []
 }
