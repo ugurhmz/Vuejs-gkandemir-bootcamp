@@ -19,6 +19,12 @@ const routes = [
         name: "RegisterPage",
         path: "/register",
         component: () => import("@/views/Register")
+    },
+
+    {
+        name:"NewBookmarkPage",
+        path:"/new-bookmark",
+        component : () => import("@/views/NewBookMark")
     }
 
 ];
