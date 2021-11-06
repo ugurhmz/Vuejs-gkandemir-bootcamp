@@ -7,6 +7,12 @@ export default createStore({
         mykey : "hello!mykey."
     },
 
+    mutations : {
+        setUser(state, user) {
+            state.user = user;
+        }
+    },
+
     getters : {
         _isUserAuthenticated : state => state.user !== null,
         _getCurrentUser(state) {

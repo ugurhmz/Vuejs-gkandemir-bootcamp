@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "username": "sena123",
+      "fullname": "sena",
+      "password": "ae754b17255ebae3325f56f7adddc480cd1477c7",
+      "id": 1
+    }
+  ],
   "bookmarks": [],
   "categories": []
 }

@@ -39,9 +39,18 @@ import CryptoJS from "crypto-js";
             console.log(password);
 
             this.$appAxios.get(`/users?username=${this.userData.username}&password=${password}`)
-                          .then(login_reponse => {
-                            console.log("login_response : ",login_reponse);
+                          .then(login_response => {
+
+                              if(login_response?.data?.length > 0){
+                                  this.$store.commit("setUser", login_response?.data[0]);
+                                  this.$router.push({ name : "HomePage"});
+                              } else {
+                                alert("Böyle bir Kullanıcı Yok!");
+                              }
+
+                            console.log("login_response : ",login_response);
                           })
+                          .catch(e => console.log(e));
 
           }
       }
