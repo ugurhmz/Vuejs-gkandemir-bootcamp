@@ -1,18 +1,5 @@
 {
-  "users": [
-    {
-      "username": "ugurhmz67",
-      "fullname": "Ugur hamzaoglu",
-      "password": "U2FsdGVkX18W4lhVVpNXm+owLotvuWJ9mRYtcFl7uTk=",
-      "id": 1
-    },
-    {
-      "username": "selin123",
-      "fullname": "Selin Atmaca",
-      "password": "U2FsdGVkX1/STaQ0PovhOCUz16yhUBz+WplQorvxIJY=",
-      "id": 2
-    }
-  ],
+  "users": [],
   "bookmarks": [],
   "categories": []
 }

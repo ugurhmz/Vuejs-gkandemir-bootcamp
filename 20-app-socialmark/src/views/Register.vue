@@ -37,7 +37,7 @@ import CryptoJs from "crypto-js";
       methods : {
         onSave() {
           const password = this.userData.password;
-          const cryptedPassword = CryptoJs.AES.encrypt(password,this.$store.getters._mykey).toString();
+          const cryptedPassword = CryptoJs.HmacSHA1(password,this.$store.getters._mykey).toString();
 
 
           //tüm userData nesnesini al ve içindeki password property'sini -> cryptedPassword olarak ez.
