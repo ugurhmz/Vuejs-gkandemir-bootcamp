@@ -2,8 +2,8 @@
 
     <div class="login_register_container">
         <h3 class="text-2xl text-center mb-3">Register</h3>
-        <input v-model="userData.username" type="text" placeholder="Tam Ad" class="input mb-3" />
-        <input v-model="userData.fullname" type="text" placeholder="Kullanıcı Adı" class="input mb-3" />
+        <input v-model="userData.fullname" type="text" placeholder="Tam Ad" class="input mb-3" />
+        <input v-model="userData.username" type="text" placeholder="Kullanıcı Adı" class="input mb-3" />
         <input v-model="userData.password" type="password" placeholder="Şifre" class="input mb-3" />
         <button @click="onSave"  class="default-button">Kayıt ol</button>
         <span class="text-center mt-3 text-sm">
@@ -37,8 +37,7 @@ import CryptoJs from "crypto-js";
       methods : {
         onSave() {
           const password = this.userData.password;
-          const key = "hello!mykey.";
-          const cryptedPassword = CryptoJs.AES.encrypt(password,key).toString();
+          const cryptedPassword = CryptoJs.AES.encrypt(password,this.$store.getters._mykey).toString();
 
 
           //tüm userData nesnesini al ve içindeki password property'sini -> cryptedPassword olarak ez.

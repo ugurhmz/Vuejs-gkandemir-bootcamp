@@ -1,22 +1,16 @@
 {
   "users": [
     {
-      "username": "selen67",
-      "fullname": "admin",
-      "password": "U2FsdGVkX1/oL2k6NiUlkU5jKFbS0jOvhd0gtqfZJIo=",
+      "username": "ugurhmz67",
+      "fullname": "Ugur hamzaoglu",
+      "password": "U2FsdGVkX18W4lhVVpNXm+owLotvuWJ9mRYtcFl7uTk=",
       "id": 1
     },
     {
-      "username": "mert usta",
-      "fullname": "mert67",
-      "password": "U2FsdGVkX19huco8nPOutmEZhmRJqNGeqAzQISZ9Gbc=",
+      "username": "selin123",
+      "fullname": "Selin Atmaca",
+      "password": "U2FsdGVkX1/STaQ0PovhOCUz16yhUBz+WplQorvxIJY=",
       "id": 2
-    },
-    {
-      "username": "selin uçak",
-      "fullname": "selin6767",
-      "password": "U2FsdGVkX1+U3A/26c/Pwtek1mPWhj6iUDp+fKWhpzc=",
-      "id": 3
     }
   ],
   "bookmarks": [],
