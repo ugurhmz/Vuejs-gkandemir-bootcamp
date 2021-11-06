@@ -40,6 +40,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
    const authRequiredRoutes = ["HomePage"];
    const _isAuthenticated = store.getters._isUserAuthenticated;
+   const authNotRequiredRoutes = ["LoginPage","RegisterPage"];
+
+   //auth olmuşssa bir daha login ve register sayfasında işi yok, giremesin.
+    if(authNotRequiredRoutes.indexOf(to.name) > -1 && _isAuthenticated) next(false);
+
 
 
    //rotasının içinde varsa ve auth'sa nextle
