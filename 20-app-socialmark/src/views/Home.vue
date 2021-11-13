@@ -4,7 +4,7 @@
 
     <div class="flex flex-row">
         <left-side-bar/>
-        <app-bookmark-list/>
+        <app-bookmark-list :items="bookmarkList"/>
 
     </div>
 
@@ -17,8 +17,21 @@
     export default {
         name: "Home",
         components: {
-            LeftSideBar,
-        }
+          LeftSideBar,
+        },
+        data() {
+          return {
+            bookmarkList : []
+          }
+        },
+      ///comments?_expand=post
+        created () {
+          this.$appAxios.get("/bookmarks?_expand=category&_expand=user").then(bookmark_response => {
+            console.log("res : ",bookmark_response)
+            this.bookmarkList = bookmark_response?.data || [];
+          })
+        },
+
     }
 </script>
 
