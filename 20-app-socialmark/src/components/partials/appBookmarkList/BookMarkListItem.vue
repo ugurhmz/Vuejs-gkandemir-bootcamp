@@ -124,12 +124,10 @@ export default {
       return   this._userLikes?.indexOf(this.item.id) > -1
     },
 
-
     // TODO ****************   CLICK OLUNCA CLASS EKLENMESİ *******
     alreadyBookmarked(){
       return this._userBookmarks?.indexOf(this.item.id) > -1
     },
-
 
     ... mapGetters(["_getCurrentUser","_userLikes","_userBookmarks"]),
 

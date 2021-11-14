@@ -4,11 +4,11 @@
 
     <div class="flex flex-row">
         <left-side-bar  @category-changed="updateBookMarkListToCategory"/>
-
         <app-bookmark-list v-if="bookmarkList.length > 0"  :items="bookmarkList"/>
         <div v-else>
           <h2>Gösterilcek BookMark Yok!</h2>
         </div>
+
     </div>
 
 </template>
