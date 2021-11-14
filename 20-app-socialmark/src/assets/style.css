@@ -637,6 +637,12 @@ video {
   color: rgba(153, 27, 27, var(--tw-text-opacity));
 }
 
+.bookmark-item-active2 {
+ background-color: #cd66ff;
+
+}
+
+
 .details-btn {
   display: flex;
   height: 2.5rem;

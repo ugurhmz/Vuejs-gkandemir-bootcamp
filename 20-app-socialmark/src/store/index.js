@@ -8,7 +8,7 @@ var ls = new SecureLS({ isCompression: false });
 export default createStore({
     state : {
         user : null,
-        mykey : "hello!mykey."
+        mykey : "hello!mykey.",
     },
 
     mutations : {
@@ -16,6 +16,9 @@ export default createStore({
             state.user = user;
         },
 
+        setLikes(state, bookmarkIds){
+           state.user.likes = bookmarkIds;
+        },
         logoutUser(state) {
             state.user = null;
         }
@@ -28,6 +31,9 @@ export default createStore({
             delete myuser?.password;
             return myuser
         },
+        _userLikes : state => state.user?.likes || [],
+        _userBookmarks : state => state.user?.bookmarks || [],
+        _currentUserId : state => state?.user?.id,
         _mykey : state => state.mykey   // bütün her yerden kullan diye bu şekilde yaptık.
     },
 

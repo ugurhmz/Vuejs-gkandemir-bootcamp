@@ -1,12 +1,11 @@
 <template>
-
-    <div class="bg-white flex flex-col gap-x-3 rounded-md shadow-sm">
+    <div  class="bg-white flex flex-col gap-x-3 rounded-md shadow-sm">
         <div class="p-3">
             <a :href="item.url"  target="_blank"  class="hover:text-black font-bold text-l mb-1 text-gray-600 text-center">
               {{ item.title || "-"}}
             </a>
             <div class="flex items-center justify-center mt-2 gap-x-1">
-                <button class="like-btn group">
+                <button @click="likeBtn" class="like-btn group" :class="{'bookmark-item-active2' : alreadyLiked}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white"
                          height="24" viewBox="0 0 24 24" width="24">
                         <path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none"/>
@@ -35,10 +34,11 @@
             </div>
             <div class="text-xs text-gray-400 mt-2 flex justify-between">
                 <a href="#" class="hover:text-black">  {{ userName }} </a>
-                <span style="margin-left:11px;">{{ item.created_at  }}</span>
+                <span style="margin-left:11px;">{{ $moment.timeAgo(item.created_at) }}</span>
             </div>
         </div>
-        <div class="bg-red-200 p-1 text-red-900 text-center text-sm">
+
+        <div class="bg-red-200 p-1 text-red-900 text-center text-sm" >
           {{ categoryName }}
         </div>
     </div>
@@ -46,6 +46,8 @@
 </template>
 
 <script>
+
+import {mapGetters} from "vuex";
 
 export default {
 
@@ -57,6 +59,26 @@ export default {
     }
   },
 
+  methods : {
+    likeBtn() {
+      console.log("_userLikes : ",this._userLikes);
+
+      let likes = [... this._userLikes];
+      if(!this.alreadyLiked){
+          likes = [... likes, this.item.id ];
+      }
+      else {
+         likes = likes.filter(l => l !== this.item.id);
+      }
+
+      this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { likes }).then(like_response => {
+        console.log(like_response);
+
+        this.$store.commit("setLikes", likes); //store->index.js içindeki mutationsa addToLikes adlı funcu yolluyoruz.
+      })
+    }
+  },
+
   // props içinde gelen category name'yi computed'da kontrol et eğerki yoksa "-" bas.
   computed : {
     categoryName() {
@@ -65,6 +87,13 @@ export default {
 
     userName(){
       return this.item?.user?.fullname || "-"
+    },
+
+    ... mapGetters(["_getCurrentUser","_userLikes"]),
+
+    // TODO ****************   CLICK OLUNCA CLASS EKLENMESİ *******
+    alreadyLiked(){
+      return   this._userLikes?.indexOf(this.item.id) > -1
     }
   }
 
