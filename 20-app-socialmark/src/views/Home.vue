@@ -32,7 +32,18 @@
           this.$appAxios.get("/bookmarks?_expand=category&_expand=user").then(bookmark_response => {
             console.log("res : ",bookmark_response)
             this.bookmarkList = bookmark_response?.data || [];
+          });
+
+          //TODO Bookmark olarak  eklediklerimizi çekmek için user_bookmarks üzerinden
+          this.$appAxios.get("/user_bookmarks/?_expand=bookmark&_expand=user").then(user_bookmarks_response => {
+            this.$store.commit("setBookmarks",user_bookmarks_response?.data);
+          });
+
+          //TODO Like olarak  eklediklerimizi çekmek için user_bookmarks üzerinden
+          this.$appAxios.get("/user_likes/?_expand=bookmark?_expand=user").then(user_likes_response => {
+            this.$store.commit("setLikes", user_likes_response?.data);
           })
+
         },
 
         methods : {

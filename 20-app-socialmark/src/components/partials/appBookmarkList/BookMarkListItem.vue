@@ -18,10 +18,10 @@
                     </svg>
                 </button>
 
-              <!-- TODO bookmarkItem btn-->
+              <!-- TODO bookmarkBtn btn-->
                 <button
-                    @click="bookmarkItem"
-                    class="bookmark-btn group bookmark-item-active"
+                    @click="bookmarkBtn"
+                    class="bookmark-btn group "
                     :class="{'bookmark-item-active2' : alreadyBookmarked}">
                     <svg xmlns="http://www.w3.org/2000/svg" class="fill-current group-hover:text-white"
                          enable-background="new 0 0 24 24" viewBox="0 0 24 24" width="24" height="24">
@@ -74,61 +74,77 @@ export default {
 
     // TODO LIKEBTN
     likeBtn() {
-      console.log("_userLikes : ",this._userLikes);
-
-      let likes = [... this._userLikes];
-      if(!this.alreadyLiked){
-          likes = [... likes, this.item.id ];
-      }
-      else {
-         likes = likes.filter(l => l !== this.item.id);
-      }
-
-      this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { likes }).then(() => {
-        this.$store.commit("setLikes", likes); //store->index.js içindeki mutationsa addToLikes adlı funcu yolluyoruz.
-      })
+      this.$appAxios({
+        url: this.alreadyLiked ? `/user_likes/${this.likedItem.id}` : "/user_likes",
+        method: this.alreadyLiked ? "DELETE" : "POST",
+        data: {
+          userId: this._getCurrentUser.id,
+          bookmarkId: this.item.id
+        }
+      }).then(user_like_response => {
+        let bookmarks = [...this._userLikes];
+        if (this.alreadyLiked) {
+          bookmarks = bookmarks.filter(b => b.id !== this.likedItem.id);
+        } else {
+          bookmarks = [...bookmarks, user_like_response.data];
+        }
+        this.$store.commit("setLikes", bookmarks);
+      });
     },
 
     //TODO BOOKMARKS
-    bookmarkItem(){
-      let bookmarks = [... this._userBookmarks];
+    bookmarkBtn(){
+      this.$appAxios({
+        url : this.alreadyBookmarked  ?  `/user_bookmarks/${this.bookmarkedItem.id}` : "/user_bookmarks",
+        method :  this.alreadyBookmarked ? "DELETE" : "POST",
+        data : {
+          userId : this._getCurrentUser.id,
+          bookmarkId : this.item.id
+        }
+      }).then(user_bookmark_response => {
 
-      if(!this.alreadyBookmarked){
-          bookmarks = [... bookmarks, this.item.id];
-      }
-      else {
-          bookmarks = bookmarks.filter( l => l !== this.item.id);
-      }
-
-      this.$appAxios.patch(`/users/${this._getCurrentUser.id}`, { bookmarks}).then(() => {
-        this.$store.commit("setBookmarks", bookmarks);
+          let bookmarks = [... this._userBookmarks];
+          if(this.alreadyBookmarked){
+              bookmarks = bookmarks.filter(b => b.id !== this.bookmarkedItem.id);
+          } else {
+              bookmarks = [ ...bookmarks, user_bookmark_response.data];
+          }
+          this.$store.commit("setBookmarks",bookmarks);
       })
-    }
 
-
+    },
 
   },
 
-  // props içinde gelen category name'yi computed'da kontrol et eğerki yoksa "-" bas.
+
   computed : {
     categoryName() {
-      return this.item?.category?.name || "-";
+      return this.item?.category?.name || "-";  // props içinde gelen category name'yi computed'da kontrol et eğerki yoksa "-" bas.
     },
 
     userName(){
       return this.item?.user?.fullname || "-"
     },
 
+
+    bookmarkedItem(){
+      return this._userBookmarks?.find(b => b.bookmarkId === this.item.id);
+
+    },
+
+    likedItem(){
+      return this._userLikes?.find(b => b.bookmarkId === this.item.id);
+    },
+
     // TODO ****************   CLICK OLUNCA CLASS EKLENMESİ *******
     alreadyLiked(){
-      return   this._userLikes?.indexOf(this.item.id) > -1
+      return Boolean(this.likedItem);
     },
 
     // TODO ****************   CLICK OLUNCA CLASS EKLENMESİ *******
     alreadyBookmarked(){
-      return this._userBookmarks?.indexOf(this.item.id) > -1
+      return Boolean(this.bookmarkedItem);
     },
-
     ... mapGetters(["_getCurrentUser","_userLikes","_userBookmarks"]),
 
   }

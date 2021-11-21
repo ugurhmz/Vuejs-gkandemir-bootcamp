@@ -36,11 +36,9 @@ import CryptoJS from "crypto-js";
           onSubmit(){
 
             const password = CryptoJS.HmacSHA1(this.userData.password, this.$store.getters._mykey).toString()
-            console.log(password);
 
             this.$appAxios.get(`/users?username=${this.userData.username}&password=${password}`)
                           .then(login_response => {
-
                               if(login_response?.data?.length > 0){
                                   this.$store.commit("setUser", login_response?.data[0]);
                                   this.$router.push({ name : "HomePage"});
@@ -48,7 +46,7 @@ import CryptoJS from "crypto-js";
                                 alert("Böyle bir Kullanıcı Yok!");
                               }
 
-                            console.log("login_response : ",login_response);
+                            console.log("login_response : ",login_response?.data[0]);
                           })
                           .catch(e => console.log(e));
 
