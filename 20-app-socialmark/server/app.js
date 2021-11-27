@@ -16,13 +16,10 @@ const io = socketio(server, {
 
 server.listen(PORT, () => {
 
-
     io.on("connection", socket => { // socket burda şuan bağlanan kişiyi, mesaj gelmişsse şuan gelen mesajı temsil ediyor.
-
 
     // Bağlanmış kişiye mesaj göndermek istiyorsak -> socket
     // Bütün socketteki arkadaşlara mesaj göndermek istiyorsam -> io diyeceğim.
-
 
     //!     Karşılama mesajı gönder
     socket.emit("WELCOME_MESSAGE",`Hoş geldin, ${socket.id}`);
@@ -35,9 +32,6 @@ server.listen(PORT, () => {
         socket.broadcast.emit("NEW_BOOKMARK_ADDED",bookmark)
 
     })
-
-
-
     })
 
 })
