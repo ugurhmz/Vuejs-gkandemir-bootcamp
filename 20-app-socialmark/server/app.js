@@ -16,23 +16,26 @@ const io = socketio(server, {
 
 server.listen(PORT, () => {
 
-    // io üzerinde -> bir tane event gelirse ve ismi connection olursa, bir client geliyor.
-    // Bu cliente ben socket diyeyim, bu bilgiyi ekrana bas.
+
     io.on("connection", socket => { // socket burda şuan bağlanan kişiyi, mesaj gelmişsse şuan gelen mesajı temsil ediyor.
-        console.log("Helloo")
-        console.log(socket.id)
-
-        // Bağlanmış kişiye mesaj göndermek istiyorsak -> socket
-        // Bütün socketteki arkadaşlara mesaj göndermek istiyorsam -> io diyeceğim.
 
 
-        //!     Karşılama mesajı gönder
-        socket.emit("WELCOME_MESSAGE",`Hoş geldin, ${socket.id}`);
+    // Bağlanmış kişiye mesaj göndermek istiyorsak -> socket
+    // Bütün socketteki arkadaşlara mesaj göndermek istiyorsam -> io diyeceğim.
 
-        //?     Mesajı handle et
-        socket.on("SEND_MESSAGE", (data) => {
-            console.log("Mesaj Geldi : ",data);
-        })
+
+    //!     Karşılama mesajı gönder
+    socket.emit("WELCOME_MESSAGE",`Hoş geldin, ${socket.id}`);
+
+
+    //?     NEW_BOOKMARK_EVENT handle et
+    socket.on("NEW_BOOKMARK_EVENT", (bookmark) => {
+
+        //! Ekleneneni, Gönderen hariç tüm herkese bilgiyi yolla.
+        socket.broadcast.emit("NEW_BOOKMARK_ADDED",bookmark)
+
+    })
+
 
 
     })

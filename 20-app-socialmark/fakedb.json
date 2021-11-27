@@ -18,6 +18,12 @@
       "fullname": "ugur hamzaoglu",
       "password": "598017c46b13bb235f08bba0c38e0727707dfe22",
       "id": 2
+    },
+    {
+      "username": "selam123",
+      "fullname": "selam123",
+      "password": "e78e4162888f77d0363db5f8d7b092ad409e108c",
+      "id": 3
     }
   ],
   "user_likes": [
@@ -45,6 +51,11 @@
       "userId": 1,
       "bookmarkId": 7,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "bookmarkId": 20,
+      "id": 10
     }
   ],
   "user_bookmarks": [
@@ -77,6 +88,11 @@
       "userId": 1,
       "bookmarkId": 4,
       "id": 9
+    },
+    {
+      "userId": 1,
+      "bookmarkId": 20,
+      "id": 10
     }
   ],
   "bookmarks": [
@@ -160,6 +176,132 @@
       "userId": 1,
       "created_at": "2021-11-13T10:55:16.433Z",
       "id": 9
+    },
+    {
+      "title": "vue js harika",
+      "url": "www.ireland.com",
+      "categoryId": 1,
+      "description": "lorem ipsum dolar sit amet...",
+      "userId": 1,
+      "created_at": "2021-11-27T18:24:25.157Z",
+      "id": 10
+    },
+    {
+      "title": "quasar harika",
+      "url": "www.quasardev.com",
+      "categoryId": 1,
+      "description": "lorem ipsum dolar sit amet,lorem ipsum dolar sit ametlorem ipsum dolar sit amet",
+      "userId": 1,
+      "created_at": "2021-11-27T18:27:01.329Z",
+      "id": 11
+    },
+    {
+      "title": "react",
+      "url": "www.react.com",
+      "categoryId": 2,
+      "description": "lorem ipsum dolar sit amet...lorem ipsum dolar sit amet...lorem ipsum dolar sit amet...lorem ipsum dolar sit amet...",
+      "userId": 1,
+      "created_at": "2021-11-27T18:32:52.229Z",
+      "id": 12
+    },
+    {
+      "title": "Test ...",
+      "url": "www.test.com",
+      "categoryId": 1,
+      "description": "my test ",
+      "userId": 1,
+      "created_at": "2021-11-27T18:40:23.358Z",
+      "id": 13
+    },
+    {
+      "title": "yeni test",
+      "url": "www.yenitest.com",
+      "categoryId": 2,
+      "description": "yeni test\n",
+      "userId": 1,
+      "created_at": "2021-11-27T18:41:25.345Z",
+      "id": 14
+    },
+    {
+      "title": "son test :DD:D:D:D:",
+      "url": "www.sontest.com",
+      "categoryId": 1,
+      "description": "son test ",
+      "userId": 1,
+      "created_at": "2021-11-27T18:42:01.842Z",
+      "id": 15
+    },
+    {
+      "title": "ugur123test",
+      "url": "www.ugur.com",
+      "categoryId": 1,
+      "description": "ugur test",
+      "userId": 2,
+      "created_at": "2021-11-27T18:44:00.333Z",
+      "id": 16
+    },
+    {
+      "title": "hello",
+      "url": "hello.com",
+      "categoryId": 5,
+      "description": "hello",
+      "userId": 2,
+      "created_at": "2021-11-27T18:46:48.343Z",
+      "id": 17
+    },
+    {
+      "title": "new baslık",
+      "url": "www.new.com",
+      "categoryId": 1,
+      "description": "new baslık",
+      "userId": 2,
+      "created_at": "2021-11-27T20:11:31.626Z",
+      "id": 18
+    },
+    {
+      "title": "qweqwe",
+      "url": "qweqwe",
+      "categoryId": 1,
+      "description": "qweqwe",
+      "userId": 2,
+      "created_at": "2021-11-27T20:13:27.604Z",
+      "id": 19
+    },
+    {
+      "title": "sena",
+      "url": "sena",
+      "categoryId": 1,
+      "description": "sewqe",
+      "userId": 1,
+      "created_at": "2021-11-27T20:13:40.245Z",
+      "id": 20
+    },
+    {
+      "title": "hadi bakalım",
+      "url": "hadibakalim.com",
+      "categoryId": 1,
+      "description": "hadi bakalım\n",
+      "userId": 2,
+      "created_at": "2021-11-27T20:14:38.683Z",
+      "id": 21
+    },
+    {
+      "title": "mozilla ekledi/selam123",
+      "url": "selam123",
+      "categoryId": 4,
+      "description": "Selam 123",
+      "userId": 3,
+      "created_at": "2021-11-27T20:17:15.653Z",
+      "id": 22
+    },
+    {
+      "title": "hahayt",
+      "url": "wq",
+      "categoryId": 3,
+      "description": "qweqweqw",
+      "userId": 1,
+      "created_at": "2021-11-27T20:18:32.215Z",
+      "id": 23
     }
   ],
   "categories": [

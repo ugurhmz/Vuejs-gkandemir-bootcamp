@@ -63,6 +63,16 @@ export default {
       this.$appAxios.post("/bookmarks",saveData).then(save_bookmark_response => {
         console.log(save_bookmark_response)
         Object.keys(this.userData)?.forEach(item => this.userData[item] = null) ;// userData objesinin içindeki tüm fieldlerı null yapar.
+
+        const socketData = {
+        ... save_bookmark_response,
+            user : this._getCurrentUser,
+            category : this.categoryList?.find(c => c.id === saveData.categoryId)
+        }
+
+        //! vue'den -> socket sunucusuna bilgi gönderme.
+        this.$socket.emit("NEW_BOOKMARK_EVENT",socketData);
+
         this.$router.push({name : "HomePage"});
       })
 
